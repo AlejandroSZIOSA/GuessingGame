@@ -4,16 +4,19 @@ import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 
 const GUESS_DATA = {
   question: "What is the exactly high of Mount Everest? ",
-  answer: 600,
+  answer: 3600,
 };
 
 export default function App() {
-  const inputRef = useRef();
+  const [userInput, setUserInput] = useState();
   const [result, setResult] = useState("Result");
 
   function handleSendBtn() {
-    const enteredAnswer = inputRef.current.value;
-    console.log(enteredAnswer);
+    if (userInput == GUESS_DATA.answer) {
+      setResult("That is the answer :)");
+    } else if (userInput <= 4000 && userInput >= 3000) {
+      setResult("Hög");
+    } else setResult("Lög");
   }
 
   return (
@@ -24,8 +27,8 @@ export default function App() {
       <View style={styles.inputsContainer}>
         <TextInput
           style={styles.input}
-          ref={inputRef}
-          maxLength={3}
+          onChangeText={(userInput) => setUserInput(userInput)}
+          maxLength={4}
           keyboardType="numeric"
           placeholder={"Your answer"}
         />
@@ -65,7 +68,6 @@ const styles = StyleSheet.create({
   },
 
   resultContainer: {
-    height: 200,
     width: 300,
     textAlign: "center",
     borderWidth: 1,
