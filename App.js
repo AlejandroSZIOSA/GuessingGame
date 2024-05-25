@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Button, StyleSheet, Text, TextInput, View } from "react-native";
 
 const GUESS_DATA = {
@@ -56,8 +56,8 @@ const styles = StyleSheet.create({
     height: 40,
     width: 80,
     margin: 12,
-    borderWidth: 1,
-    /* padding: 10, */
+    borderWidth: 2,
+    borderColor: "#841584",
   },
   inputsContainer: {
     flex: 0,
@@ -66,11 +66,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     gap: 8,
   },
-
   resultContainer: {
     width: 300,
     textAlign: "center",
-    borderWidth: 1,
+    borderWidth: 2,
+    borderColor: "#841584",
     paddingVertical: 15,
   },
 });
