@@ -11,7 +11,7 @@ export default function App() {
   const [userInput, setUserInput] = useState();
   const [result, setResult] = useState("Result");
 
-  function handleSendBtn() {
+  function handleSendAnswerBtn() {
     if (userInput == GUESS_DATA.answer) {
       setResult("That is the answer :)");
     } else if (userInput <= 4000 && userInput >= 3000) {
@@ -32,9 +32,9 @@ export default function App() {
           keyboardType="numeric"
           placeholder={"Your answer"}
         />
-        <Text>Meters</Text>
+        <Text style={{ fontWeight: "bold" }}>Meters</Text>
 
-        <Button title="Send" onPress={handleSendBtn} color="#841584" />
+        <Button title="Send" onPress={handleSendAnswerBtn} color="#841584" />
       </View>
 
       <View style={styles.resultContainer}>
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   resultContainer: {
-    width: 300,
+    width: 200,
     textAlign: "center",
     borderWidth: 2,
     borderColor: "#841584",
